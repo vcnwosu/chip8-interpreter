@@ -1,0 +1,29 @@
+;: Testing this
+start: ; testing something else
+    ; Clear the screen
+    CLS
+
+    ; Load the value 0 into register V0
+    LD V0, 0
+
+    ; Set the index register (I) to the address of the "data" label
+    LD I, data
+
+    ; Draw a sprite at coordinate (V0, V0) with a height of 5
+    ; The sprite data starts at the address in I
+    DRW V0, V0, 5
+
+loop:
+    ; Infinite loop to keep the program running
+    JP loop
+
+    ; Dead code
+    EXIT
+
+data:
+    ; Sprite data (5 bytes for a simple shape)
+    DB 0xF0   ; ****
+    DB 0x90   ; *  *
+    DB 0x91   ; *  *
+    DB 0x90   ; *  *
+    DB 0xF0   ; ****
